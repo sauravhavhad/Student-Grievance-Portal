@@ -16,12 +16,24 @@ app.use(
     credentials: true,
   })
 );
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// Root route
+app.get('/', (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: 'Student Grievance Portal API is running',
+  });
+});
+
 // Health check
 app.get('/api/health', (req, res) => {
-  res.status(200).json({ success: true, message: 'API is running' });
+  res.status(200).json({
+    success: true,
+    message: 'API is running',
+  });
 });
 
 // Routes
